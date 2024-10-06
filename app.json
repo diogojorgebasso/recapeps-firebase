@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "HelloWorld",
-    "slug": "expo-template-default",
+    "name": "Recapeps Firebase",
+    "slug": "recapeps-firebase",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -13,13 +13,15 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.recapepsfirebase.recapepsfirebase"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.recapepsfirebase.recapepsfirebase"
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +33,18 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5ec83fd7-87db-4f44-9b20-8ecf0b92a336"
+      }
+    },
+    "owner": "recapepsfirebase",
+    "updates": {
+      "url": "https://u.expo.dev/5ec83fd7-87db-4f44-9b20-8ecf0b92a336"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }
