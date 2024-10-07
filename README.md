@@ -1,7 +1,23 @@
 
-# Aplicativo Educacional (Expo, React, Firebase e AES)
+# Recapeps 
 
-Este é um aplicativo educacional em francês criado usando **Expo**, **React**, **Firebase** e **AES**. O app tem como objetivo fornecer uma plataforma interativa para os usuários revisarem conteúdos e se prepararem para exames, oferecendo funcionalidades como fiches de revisão, quizzes, flash cards e um chatbot. A aplicação também garante segurança e privacidade ao usar **AES (Advanced Encryption Standard)** para criptografar dados sensíveis.
+Este é um aplicativo educacional em francês criado usando **Expo**, **React Native**, **Reeact Firebase IO**, [**EAS (Expo Application Services)**](https://docs.expo.dev/eas/), **React Testing**. O app tem como objetivo fornecer uma plataforma interativa para os usuários revisarem conteúdos e se prepararem para exames, oferecendo funcionalidades como:
+
+- fiches de revisão, 
+- quizzes, 
+- flash cards,
+- chatbot, 
+& mais
+
+Além do mais, o código promete ser de alta qualidade, com testes automatizados e integração contínua para as seguintes plataformas:
+
+- Android
+- iOS
+- WEB
+
+A aplicação também utiliza EAS para deploy contínuo e atualizações OTA (Over-The-Air) através do [Rololut](https://docs.expo.dev/eas-update/rollouts/).
+
+![Printscreen do Rollout conforme aplicado hoje](/docs/imgs/Rollout.png)
 
 ## Funcionalidades Principais
 
@@ -15,18 +31,31 @@ Este é um aplicativo educacional em francês criado usando **Expo**, **React**,
 - **Expo**: Framework para criação de apps React Native.
 - **React**: Biblioteca JavaScript para construção de interfaces de usuário.
 - **Firebase**: Backend para autenticação, armazenamento de dados e hospedagem.
-- **AES**: Criptografia para segurança de dados.
+- **EAS (Expo Application Services)**: Plataforma para gerenciamento de builds, deploys e atualizações OTA.
+
+## Funcionalidade de Rollout com EAS
+
+O **EAS** oferece um sistema de **Rollout de Atualizações**, permitindo distribuir novas versões de maneira gradual para os usuários, garantindo que bugs e problemas em potencial sejam detectados antes de uma liberação completa.
+
+### Exemplos de Rollout de Atualizações:
+1. **Build e Deploy OTA**: Com o EAS, podemos fazer builds automáticas e enviar atualizações diretamente para os dispositivos dos usuários sem a necessidade de reinstalar o app.
+   ```bash
+   eas build --platform android   # Build para Android
+   eas build --platform ios       # Build para iOS
+   ```
+2. **Rollout Gradual**: Configuramos um rollout para liberar as novas funcionalidades de forma gradual para 10% dos usuários inicialmente e, em seguida, expandir para o restante.
+   ```bash
+   eas update --branch=main --percent=10
+   ```
+3. **Monitoramento de Bugs**: Acompanhamos o feedback e monitoramos erros antes de liberar para todos os usuários.
 
 ## Instalação
-
-> [!INFO]
-> Para começar um projeto do zero, acesse o site [expo.new](https://expo.new) e siga as instruções.
 
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/diogojorgebasso/recapeps-firebase
-   cd recapeps-firebase
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
    ```
 
 2. Instale as dependências do projeto:
@@ -35,10 +64,17 @@ Este é um aplicativo educacional em francês criado usando **Expo**, **React**,
    npm install
    ```
 
-3. Configure o Firebase:
+3. Instale o Firebase e outras bibliotecas necessárias:
 
-   - Adicione o arquivo `google-services.json` na pasta raiz para Android.
-   - Adicione o arquivo `GoogleService-Info.plist` na pasta raiz para iOS.
+   ```bash
+   npm install @react-native-firebase/app
+   npm install expo-dev-client
+   ```
+
+4. Configure o Firebase:
+
+   - Adicione o arquivo `google-services.json` na pasta `android/app/` para Android.
+   - Adicione o arquivo `GoogleService-Info.plist` na pasta `ios/{nome-do-app}/` para iOS.
 
 5. Inicie o projeto com o Expo:
 
@@ -53,43 +89,15 @@ Este é um aplicativo educacional em francês criado usando **Expo**, **React**,
    expo run:ios      # Para iOS
    ```
 
-## Uso de AES para Criptografia
-
-O projeto utiliza **AES** para criptografar dados sensíveis antes de armazená-los no Firebase. Aqui está um exemplo básico de como criptografar e descriptografar dados:
-
-```javascript
-import CryptoJS from 'crypto-js';
-
-// Função para criptografar
-const encryptData = (data, key) => {
-  return CryptoJS.AES.encrypt(JSON.stringify(data), key).toString();
-};
-
-// Função para descriptografar
-const decryptData = (cipherText, key) => {
-  const bytes = CryptoJS.AES.decrypt(cipherText, key);
-  return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-};
-
-// Exemplo de uso:
-const data = { name: 'Exemplo', score: 100 };
-const secretKey = 'minha-chave-secreta';
-
-const encryptedData = encryptData(data, secretKey);
-console.log('Dados Criptografados:', encryptedData);
-
-const decryptedData = decryptData(encryptedData, secretKey);
-console.log('Dados Descriptografados:', decryptedData);
-```
-
 ## Estrutura de Diretórios
 
 ```bash
 .
 ├── assets          # Imagens, ícones e outros assets do app
 ├── components      # Componentes React reutilizáveis
-├── screens         # Telas principais do app (Fiches, Quizz, Flash Cards, Chatbot)
-├── services        # Serviços para interações com Firebase e lógica de criptografia AES
+├── services        # Serviços para interações com Firebase
+├── app             # Páginas e navegação com Expo Router
+│   ├── fichas      # Páginas específicas de cada matéria
 ├── App.js          # Arquivo principal do React Native
 ├── firebase.js     # Configuração e inicialização do Firebase
 ├── package.json    # Dependências e scripts do projeto
