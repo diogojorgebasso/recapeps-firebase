@@ -1,50 +1,111 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Aplicativo Educacional (Expo, React, Firebase e AES)
 
-## Get started
+Este é um aplicativo educacional em francês criado usando **Expo**, **React**, **Firebase** e **AES**. O app tem como objetivo fornecer uma plataforma interativa para os usuários revisarem conteúdos e se prepararem para exames, oferecendo funcionalidades como fiches de revisão, quizzes, flash cards e um chatbot. A aplicação também garante segurança e privacidade ao usar **AES (Advanced Encryption Standard)** para criptografar dados sensíveis.
 
-1. Install dependencies
+## Funcionalidades Principais
+
+- **Fiches de Révision (Folhas de Revisão)**: Permite aos usuários revisar conteúdos importantes.
+- **Quizz**: Questionários interativos para testar o conhecimento.
+- **Flash Cards**: Ajuda os usuários a memorizar informações de forma dinâmica.
+- **Chatbot**: Assistente virtual para tirar dúvidas e guiar o usuário.
+
+## Tecnologias Utilizadas
+
+- **Expo**: Framework para criação de apps React Native.
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **Firebase**: Backend para autenticação, armazenamento de dados e hospedagem.
+- **AES**: Criptografia para segurança de dados.
+
+## Instalação
+
+> [!INFO]
+> Para começar um projeto do zero, acesse o site [expo.new](https://expo.new) e siga as instruções.
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/diogojorgebasso/recapeps-firebase
+   cd recapeps-firebase
+   ```
+
+2. Instale as dependências do projeto:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Configure o Firebase:
+
+   - Adicione o arquivo `google-services.json` na pasta raiz para Android.
+   - Adicione o arquivo `GoogleService-Info.plist` na pasta raiz para iOS.
+
+5. Inicie o projeto com o Expo:
 
    ```bash
-    npx expo start
+   expo start --dev-client
    ```
 
-In the output, you'll find options to open the app in a
+6. Se precisar, compile o aplicativo para testar localmente:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   ```bash
+   expo run:android  # Para Android
+   expo run:ios      # Para iOS
+   ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Uso de AES para Criptografia
 
-## Get a fresh project
+O projeto utiliza **AES** para criptografar dados sensíveis antes de armazená-los no Firebase. Aqui está um exemplo básico de como criptografar e descriptografar dados:
 
-When you're ready, run:
+```javascript
+import CryptoJS from 'crypto-js';
 
-```bash
-npm run reset-project
+// Função para criptografar
+const encryptData = (data, key) => {
+  return CryptoJS.AES.encrypt(JSON.stringify(data), key).toString();
+};
+
+// Função para descriptografar
+const decryptData = (cipherText, key) => {
+  const bytes = CryptoJS.AES.decrypt(cipherText, key);
+  return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+};
+
+// Exemplo de uso:
+const data = { name: 'Exemplo', score: 100 };
+const secretKey = 'minha-chave-secreta';
+
+const encryptedData = encryptData(data, secretKey);
+console.log('Dados Criptografados:', encryptedData);
+
+const decryptedData = decryptData(encryptedData, secretKey);
+console.log('Dados Descriptografados:', decryptedData);
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Estrutura de Diretórios
 
-## Learn more
+```bash
+.
+├── assets          # Imagens, ícones e outros assets do app
+├── components      # Componentes React reutilizáveis
+├── screens         # Telas principais do app (Fiches, Quizz, Flash Cards, Chatbot)
+├── services        # Serviços para interações com Firebase e lógica de criptografia AES
+├── App.js          # Arquivo principal do React Native
+├── firebase.js     # Configuração e inicialização do Firebase
+├── package.json    # Dependências e scripts do projeto
+└── README.md       # Documentação do projeto
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Contribuições
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Contribuições são bem-vindas! Para contribuir, siga os passos abaixo:
 
-## Join the community
+1. Fork o repositório.
+2. Crie uma nova branch com a sua feature: `git checkout -b minha-feature`.
+3. Commit suas mudanças: `git commit -m 'Adiciona nova feature'`.
+4. Envie para a branch principal: `git push origin minha-feature`.
+5. Abra um Pull Request.
 
-Join our community of developers creating universal apps.
+## Licença
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
