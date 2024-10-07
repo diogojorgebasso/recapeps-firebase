@@ -12,7 +12,7 @@ import auth from '@react-native-firebase/auth'
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { useState } from 'react';
-import React from 'react';
+//import React from 'react';
 
 export default function HomeScreen() {
   const [email, setEmail] = useState('')

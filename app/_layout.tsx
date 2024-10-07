@@ -4,6 +4,8 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
 import 'react-native-reanimated';
+import firebase, { initializeApp } from '@react-native-firebase/app';
+import { firebaseConfig } from '@/firebaseConfig';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
@@ -15,6 +17,10 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState<FirebaseAuthTypes.User | null>();
+
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
 
   const onAuthStateChanged = (user: FirebaseAuthTypes.User | null) => {
     console.log('onAuthStateChanged', user);
