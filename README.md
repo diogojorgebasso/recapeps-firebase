@@ -1,50 +1,119 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Recapeps 
 
-## Get started
+Este é um aplicativo educacional em francês criado usando **Expo**, **React Native**, **Reeact Firebase IO**, [**EAS (Expo Application Services)**](https://docs.expo.dev/eas/), **React Testing**. O app tem como objetivo fornecer uma plataforma interativa para os usuários revisarem conteúdos e se prepararem para exames, oferecendo funcionalidades como:
 
-1. Install dependencies
+- fiches de revisão, 
+- quizzes, 
+- flash cards,
+- chatbot, 
+& mais
+
+Além do mais, o código promete ser de alta qualidade, com testes automatizados e integração contínua para as seguintes plataformas:
+
+- Android
+- iOS
+- WEB
+
+A aplicação também utiliza EAS para deploy contínuo e atualizações OTA (Over-The-Air) através do [Rololut](https://docs.expo.dev/eas-update/rollouts/).
+
+![Printscreen do Rollout conforme aplicado hoje](/docs/imgs/Rollout.png)
+
+## Funcionalidades Principais
+
+- **Fiches de Révision (Folhas de Revisão)**: Permite aos usuários revisar conteúdos importantes.
+- **Quizz**: Questionários interativos para testar o conhecimento.
+- **Flash Cards**: Ajuda os usuários a memorizar informações de forma dinâmica.
+- **Chatbot**: Assistente virtual para tirar dúvidas e guiar o usuário.
+
+## Tecnologias Utilizadas
+
+- **Expo**: Framework para criação de apps React Native.
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **Firebase**: Backend para autenticação, armazenamento de dados e hospedagem.
+- **EAS (Expo Application Services)**: Plataforma para gerenciamento de builds, deploys e atualizações OTA.
+
+## Funcionalidade de Rollout com EAS
+
+O **EAS** oferece um sistema de **Rollout de Atualizações**, permitindo distribuir novas versões de maneira gradual para os usuários, garantindo que bugs e problemas em potencial sejam detectados antes de uma liberação completa.
+
+### Exemplos de Rollout de Atualizações:
+1. **Build e Deploy OTA**: Com o EAS, podemos fazer builds automáticas e enviar atualizações diretamente para os dispositivos dos usuários sem a necessidade de reinstalar o app.
+   ```bash
+   eas build --platform android   # Build para Android
+   eas build --platform ios       # Build para iOS
+   ```
+2. **Rollout Gradual**: Configuramos um rollout para liberar as novas funcionalidades de forma gradual para 10% dos usuários inicialmente e, em seguida, expandir para o restante.
+   ```bash
+   eas update --branch=main --percent=10
+   ```
+3. **Monitoramento de Bugs**: Acompanhamos o feedback e monitoramos erros antes de liberar para todos os usuários.
+
+## Instalação
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
+   ```
+
+2. Instale as dependências do projeto:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Instale o Firebase e outras bibliotecas necessárias:
 
    ```bash
-    npx expo start
+   npm install @react-native-firebase/app
+   npm install expo-dev-client
    ```
 
-In the output, you'll find options to open the app in a
+4. Configure o Firebase:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   - Adicione o arquivo `google-services.json` na pasta `android/app/` para Android.
+   - Adicione o arquivo `GoogleService-Info.plist` na pasta `ios/{nome-do-app}/` para iOS.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+5. Inicie o projeto com o Expo:
 
-## Get a fresh project
+   ```bash
+   expo start --dev-client
+   ```
 
-When you're ready, run:
+6. Se precisar, compile o aplicativo para testar localmente:
+
+   ```bash
+   expo run:android  # Para Android
+   expo run:ios      # Para iOS
+   ```
+
+## Estrutura de Diretórios
 
 ```bash
-npm run reset-project
+.
+├── assets          # Imagens, ícones e outros assets do app
+├── components      # Componentes React reutilizáveis
+├── services        # Serviços para interações com Firebase
+├── app             # Páginas e navegação com Expo Router
+│   ├── fichas      # Páginas específicas de cada matéria
+├── App.js          # Arquivo principal do React Native
+├── firebase.js     # Configuração e inicialização do Firebase
+├── package.json    # Dependências e scripts do projeto
+└── README.md       # Documentação do projeto
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Contribuições
 
-## Learn more
+Contribuições são bem-vindas! Para contribuir, siga os passos abaixo:
 
-To learn more about developing your project with Expo, look at the following resources:
+1. Fork o repositório.
+2. Crie uma nova branch com a sua feature: `git checkout -b minha-feature`.
+3. Commit suas mudanças: `git commit -m 'Adiciona nova feature'`.
+4. Envie para a branch principal: `git push origin minha-feature`.
+5. Abra um Pull Request.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Licença
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
