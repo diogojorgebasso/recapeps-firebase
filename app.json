@@ -17,12 +17,15 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.recapepsfirebase.recapepsfirebase"
+      "bundleIdentifier": "com.recapepsfirebase.recapepsfirebase",
+      "googleServicesFile": "./GoogleService-Info.plist"
+
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#ffffff",
+        "googleServicesFile": "./google-services.json"
       },
       "package": "com.recapepsfirebase.recapepsfirebase"
     },
@@ -34,11 +37,14 @@
     "plugins": [
       "expo-router",
       "expo-font",
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
       [
         "expo-build-properties",
         {
           "ios": {
-            "newArchEnabled": true
+            "newArchEnabled": true,
+            "useFrameworks": "static"
           },
           "android": {
             "newArchEnabled": true

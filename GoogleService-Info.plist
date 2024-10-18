@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>177310005845-oa5rhjanbpht2hqs8j2dph3nj90h87eb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.177310005845-oa5rhjanbpht2hqs8j2dph3nj90h87eb</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>177310005845-792asfkhqji3h2q77gp369jn1kbehoat.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCHmEeVugL0WAEDzk7Ktl1WJvMl7iQqm7A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>177310005845</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.recapepsfirebase.recapepsfirebase</string>
+	<key>PROJECT_ID</key>
+	<string>recapeps</string>
+	<key>STORAGE_BUCKET</key>
+	<string>recapeps.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:177310005845:ios:d2cf6f81dd204ad5fc32dc</string>
+</dict>
+</plist>

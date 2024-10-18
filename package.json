@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@react-native-firebase/app": "^21.0.0",
+    "@react-native-firebase/auth": "^21.0.0",
     "@react-navigation/native": "^6.1.17",
     "@tamagui/config": "^1.115.5",
     "@tamagui/lucide-icons": "^1.115.5",
@@ -53,6 +54,7 @@
     "@tamagui/metro-plugin": "^1.115.5",
     "@types/react": "~18.2.79",
     "@types/react-native": "^0.73.0",
-    "typescript": "^5.5.2"
+    "expo-atlas": "^0.3.0",
+    "typescript": "~5.3.3"
   }
 }

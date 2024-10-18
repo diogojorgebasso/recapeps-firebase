@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "177310005845",
+    "project_id": "recapeps",
+    "storage_bucket": "recapeps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177310005845:android:224d8cc7a204a839fc32dc",
+        "android_client_info": {
+          "package_name": "com.recapepsfirebase.recapepsfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177310005845-792asfkhqji3h2q77gp369jn1kbehoat.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.recapepsfirebase.recapepsfirebase",
+            "certificate_hash": "d7858ce41c6e1699c2d0bc797204342bf44665c1"
+          }
+        },
+        {
+          "client_id": "177310005845-kmimhfo0jrim6go5hqau9lpn7q0blmjf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-CXZt7t3_XHGoGZ9nLoh1P8IhEEGYRZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177310005845-kmimhfo0jrim6go5hqau9lpn7q0blmjf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "177310005845-oa5rhjanbpht2hqs8j2dph3nj90h87eb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.recapepsfirebase.recapepsfirebase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

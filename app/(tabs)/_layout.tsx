@@ -1,10 +1,22 @@
-import { Link, Tabs } from 'expo-router'
-import { Button, useTheme } from 'tamagui'
+import { Link, Tabs, Redirect } from 'expo-router'
+import { Button, useTheme, Text } from 'tamagui'
 import { Atom, AudioWaveform } from '@tamagui/lucide-icons'
+
+import { useAuth } from 'app/AuthProvider'
 
 export default function TabLayout() {
   const theme = useTheme()
 
+  const { user, loading } = useAuth();
+
+  if (loading) {
+    return <Text>Loading...</Text>;
+  }
+
+  if (!user) {
+    return <Redirect href="/sign-in" />;
+  }
+  
   return (
     <Tabs
       screenOptions={{

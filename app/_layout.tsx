@@ -7,6 +7,7 @@ import { useFonts } from 'expo-font'
 import { SplashScreen, Stack } from 'expo-router'
 import { Provider } from './Provider'
 import { useTheme } from 'tamagui'
+import { AuthProvider } from './AuthProvider'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -46,7 +47,12 @@ export default function RootLayout() {
 }
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
-  return <Provider>{children}</Provider>
+  return (
+    <AuthProvider>
+      <Provider>{children}</Provider>
+    </AuthProvider>
+
+  )
 }
 
 function RootLayoutNav() {
