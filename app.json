@@ -25,9 +25,10 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff",
-        "googleServicesFile": "./google-services.json"
       },
-      "package": "com.recapepsfirebase.recapepsfirebase"
+      "package": "com.recapepsfirebase.recapepsfirebase",
+      "googleServicesFile": "./google-services.json"
+
     },
     "web": {
       "bundler": "metro",
