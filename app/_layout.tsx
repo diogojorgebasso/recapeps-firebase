@@ -8,7 +8,6 @@ import { Stack, SplashScreen } from 'expo-router';
 import { AuthProvider, useAuth } from '../AuthProvider';
 import { View, Text, StatusBar, useColorScheme } from 'react-native';
 
-
 SplashScreen.preventAutoHideAsync()
 
 const Layout = () => {
@@ -26,7 +25,6 @@ const Layout = () => {
 
   return (
     <TamaguiProvider config={tamaguiConfig} defaultTheme={colorScheme!}>
-
           <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
                 <AuthProvider>
       <Stack screenOptions={{ headerShown: false }}>
