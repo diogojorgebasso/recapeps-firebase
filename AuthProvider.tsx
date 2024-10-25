@@ -2,7 +2,6 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { useRouter } from 'expo-router';
 import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 
-// 1. Tipagem do Contexto de Autenticação
 interface AuthContextProps {
   user: FirebaseAuthTypes.User | null;
   loading: boolean;
@@ -10,10 +9,8 @@ interface AuthContextProps {
   logout: () => Promise<void>;
 }
 
-// 2. Criando o contexto de autenticação com valor inicial undefined
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
-// 3. Tipagem do AuthProvider
 interface AuthProviderProps {
   children: ReactNode;
 }
